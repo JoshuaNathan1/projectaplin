@@ -625,13 +625,13 @@
         </div>
     </div>
 </section>
-<section class="home-banks">
+<!-- <section class="home-banks">
 	<a href="partners.php">
 		<div class="lazy banks-background" data-bg="url('https://eraindonesia.com/images/our_partners_03.jpg')">
 			<img src="https://eraindonesia.com/images/our_partners_blur.jpg">
 		</div>	
 	</a>
-</section>
+</section> -->
 
 <footer class="ftco-footer ftco-section img">
     <div class="overlay"></div>
