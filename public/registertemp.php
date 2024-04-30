@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Register</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -60,6 +60,9 @@
     </script>
     <style>
         body {
+            background-image: url('desain-kolam-renang-di-rumah-1.jpg'); 
+            background-size: cover; 
+            background-position: center; 
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;

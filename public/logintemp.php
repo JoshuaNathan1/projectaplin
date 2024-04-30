@@ -59,6 +59,9 @@
     </script>
     <style>
         body {
+            background-image: url('hotel-sorga-kita-kuta.jpg'); 
+            background-size: cover; 
+            background-position: center; 
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
