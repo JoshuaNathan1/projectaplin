@@ -4,35 +4,10 @@
     <title>Project Aplin Joshua</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="ERA Indonesia is #1 Property Agent in Indonesia.">
+    <meta name="description" content="">
     <meta name="author" content="">
-    <meta property="og:image" content="https://eraindonesia.com/images/era_white.png">
-    <script src="https://kit.fontawesome.com/797dd41ce0.js" crossorigin="anonymous"></script><style media="all" id="fa-v4-font-face"></style>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Italianno" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cinzel&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.typekit.net/iai8jcd.css">
-    <link rel="stylesheet" href="https://eraindonesia.com/css/all.css">
-    <link href="https://eraindonesia.com/fonts/gotham_black/stylesheet.css" rel="stylesheet">
-    <link href="https://eraindonesia.com/fonts/helvetica_neue/stylesheet.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://eraindonesia.com/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="https://eraindonesia.com/css/animate.css">
-    <link rel="stylesheet" href="https://eraindonesia.com/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://eraindonesia.com/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="https://eraindonesia.com/css/magnific-popup.css">
-    <link rel="stylesheet" href="https://eraindonesia.com/css/aos.css">
-    <link rel="stylesheet" href="https://eraindonesia.com/css/ionicons.min.css">
-    <link rel="stylesheet" href="https://eraindonesia.com/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="https://eraindonesia.com/css/jquery.timepicker.css">
-    <link rel="stylesheet" href="https://eraindonesia.com/css/flaticon.css">
-    <link rel="stylesheet" href="https://eraindonesia.com/css/icomoon.css">
-    <link rel="stylesheet" href="https://eraindonesia.com/css/progressive-image.css">
     <link rel="stylesheet" href="https://eraindonesia.com/css/style.css?v=3.11"> 
-    <link rel="stylesheet" href="https://eraindonesia.com/css/redesign.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-C8F5VR0TG0"></script>
+    <script src="https://kit.fontawesome.com/797dd41ce0.js" crossorigin="anonymous"></script><style media="all" id="fa-v4-font-face"></style>
 </head>
 <body>
     <div id="ftco-loader" class="fullscreen"><svg class="circular" width="48px" height="48px">
