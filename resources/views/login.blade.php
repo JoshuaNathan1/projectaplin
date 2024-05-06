@@ -6,60 +6,60 @@
     <title>Login</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $('#loginForm').submit(function(e) {
-                e.preventDefault();
-                var username = $('#username').val();
-                var password = $('#password').val();
+        // $(document).ready(function() {
+        //     $('#loginForm').submit(function(e) {
+        //         e.preventDefault();
+        //         var username = $('#username').val();
+        //         var password = $('#password').val();
 
-                $.ajax({
-                    type: 'POST',
-                    url: 'login.php',
-                    data: {username: username, password: password},
-                    dataType: 'json',
-                    success: function(response) {
-                        if (response.status === 'success') {
-                            alert('Login successful');
-                            window.location.href = 'index.php';
-                        } else {
-                            alert('Login failed: ' + response.message);
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        alert('An error occurred while logging in');
-                    }
-                });
-            });
+        //         $.ajax({
+        //             type: 'POST',
+        //             url: 'login.php',
+        //             data: {username: username, password: password},
+        //             dataType: 'json',
+        //             success: function(response) {
+        //                 if (response.status === 'success') {
+        //                     alert('Login successful');
+        //                     window.location.href = 'index.php';
+        //                 } else {
+        //                     alert('Login failed: ' + response.message);
+        //                 }
+        //             },
+        //             error: function(xhr, status, error) {
+        //                 alert('An error occurred while logging in');
+        //             }
+        //         });
+        //     });
 
-            // Register
-            $('#registerForm').submit(function(e) {
-                e.preventDefault();
-                var formData = new FormData(this);
+        //     // Register
+        //     $('#registerForm').submit(function(e) {
+        //         e.preventDefault();
+        //         var formData = new FormData(this);
 
-                $.ajax({
-                    type: 'POST',
-                    url: 'register.php',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    dataType: 'json',
-                    success: function(response) {
-                        if (response.status === 'success') {
-                            alert('Registration successful');
-                        } else {
-                            alert('Registration failed: ' + response.message);
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        alert('An error occurred while registering: ' + xhr.responseText);
-                    }
-                });
-            });
-        });
+        //         $.ajax({
+        //             type: 'POST',
+        //             url: 'register.php',
+        //             data: formData,
+        //             processData: false,
+        //             contentType: false,
+        //             dataType: 'json',
+        //             success: function(response) {
+        //                 if (response.status === 'success') {
+        //                     alert('Registration successful');
+        //                 } else {
+        //                     alert('Registration failed: ' + response.message);
+        //                 }
+        //             },
+        //             error: function(xhr, status, error) {
+        //                 alert('An error occurred while registering: ' + xhr.responseText);
+        //             }
+        //         });
+        //     });
+        // });
     </script>
     <style>
         body {
-            background-image: url('hotel-sorga-kita-kuta.jpg'); 
+            background-image: url("{{asset('img/hotel-sorga-kita-kuta.jpg')}}"); 
             background-size: cover; 
             background-position: center; 
             font-family: Arial, sans-serif;
@@ -138,6 +138,7 @@
     <div class="container">
         <h2>Login</h2>
         <form id="loginForm" method="post">
+            @csrf
             <div style="position: relative;">
                 <input type="text" id="username" name="username" placeholder="Username">
                 <i class="fas fa-user" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%);"></i>
@@ -147,8 +148,19 @@
                 <i class="fas fa-lock" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%);"></i>
             </div>
             <input type="submit" value="Login">
+
+            @error('username')
+                <label style="font-size: 0.8em; color:red; font-weight:700;">
+                    {{ $message }} <br>
+                </label>
+            @enderror
+            @error('password')
+                <label style="font-size: 0.8em; color:red; font-weight:700;">
+                    {{ $message }} <br>
+                </label>
+            @enderror
         </form>
-        <a href="registertemp.php">Don't have an account? Register here</a>
+        <a href="./register">Don't have an account? Register here</a>
     </div>
 </body>
 </html>

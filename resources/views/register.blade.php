@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
+    <!-- <script>
         $(document).ready(function() {
             // Login
             $('#loginForm').submit(function(e) {
@@ -57,12 +58,12 @@
                 });
             });
         });
-    </script>
+    </script> -->
     <style>
         body {
-            background-image: url('desain-kolam-renang-di-rumah-1.jpg'); 
-            background-size: cover; 
-            background-position: center; 
+            background-image: url('{{asset("/img/desain-kolam-renang-di-rumah-1.jpg")}}');
+            background-size: cover;
+            background-position: center;
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
@@ -136,16 +137,18 @@
         }
     </style>
 </head>
+
 <body>
-<div class="container">
+    <div class="container">
         <h2>Register</h2>
         <form id="registerForm" method="post" enctype="multipart/form-data">
+            @csrf
             <div style="position: relative;">
                 <input type="text" name="username" placeholder="Username">
                 <i class="fas fa-user" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%);"></i>
             </div>
             <div style="position: relative;">
-                <input type="text" name="name" placeholder="Name">
+                <input type="text" name="full_name" placeholder="Full Name">
                 <i class="fas fa-user" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%);"></i>
             </div>
             <div style="position: relative;">
@@ -153,12 +156,40 @@
                 <i class="fas fa-lock" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%);"></i>
             </div>
             <div style="position: relative;">
+                <input type="password" name="password_confirmation" placeholder="Confirm Password">
+                <i class="fas fa-lock" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%);"></i>
+            </div>
+            <div style="position: relative;">
                 <input type="file" name="profile_pic">
                 <i class="fas fa-image" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%);"></i>
             </div>
             <input type="submit" value="Register">
+
+            @error('username')
+            <label style="font-size: 0.8em; color:red; font-weight:700;">
+                {{ $message }} <br>
+            </label>
+            @enderror
+
+            @error('full_name')
+            <label style="font-size: 0.8em; color:red; font-weight:700;">
+                {{ $message }} <br>
+            </label>
+            @enderror
+            @error('password')
+            <label style="font-size: 0.8em; color:red; font-weight:700;">
+                {{ $message }} <br>
+            </label>
+            @enderror
+
+            @error('profile_pic')
+            <label style="font-size: 0.8em; color:red; font-weight:700;">
+                {{ $message }} <br>
+            </label>
+            @enderror
         </form>
-        <a href="logintemp.php">Already Have an Account? Log in Here</a>
+        <a href="./login">Already Have an Account? Log in Here</a>
     </div>
 </body>
+
 </html>
