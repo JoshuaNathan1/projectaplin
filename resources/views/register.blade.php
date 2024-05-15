@@ -160,6 +160,10 @@
                 <i class="fas fa-lock" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%);"></i>
             </div>
             <div style="position: relative;">
+                <input type="text" name="hp" placeholder="Phone Number">
+                <i class="fas fa-lock" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%);"></i>
+            </div>
+            <div style="position: relative;">
                 <input type="file" name="profile_pic">
                 <i class="fas fa-image" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%);"></i>
             </div>

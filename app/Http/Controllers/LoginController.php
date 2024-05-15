@@ -39,6 +39,8 @@ class LoginController extends Controller
         } else if ($user->password != $req->password) {
             return redirect("login")->withErrors(['username' => 'Incorrect Password']);
         }
+
+        if($user["role"] == "admin") return redirect('/admin/office');
     }
     public function doRegister(Request $req)
     {
@@ -47,7 +49,8 @@ class LoginController extends Controller
                 //ini pengecekannya
                 "username" => "required|regex:/^\S*$/",
                 "full_name" => "required",
-                'password' => "required|confirmed"
+                'password' => "required|confirmed",
+                "hp"=> "required"
             ],
             [
                 //ini perubahan error messagenya
@@ -93,10 +96,15 @@ class LoginController extends Controller
         $user->username = $req->username;
         $user->full_name = $req->full_name;
         $user->password =  $req->password;
+        $user->hp = $req->hp;
         $user->profile_pic = $path;
         $user->role = 'pengguna';
 
         $user->save();
-        return redirect("login")->with("message", "Anda telah berhasil register");
+        return redirect("/login")->with("message", "Anda telah berhasil register");
+    }
+
+    public function logout(){
+        return redirect("/login");
     }
 }
