@@ -51,21 +51,10 @@
                     <a href="/admin/properti" class="nav-link">Properti</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/customer"
-                        class="nav-link @if (isset($customer_nav)) active @endif ">Customer</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/admin/customer" class="nav-link"
-                        @if (isset($transaksi)) active @endif>Transaksi</a>
-                </li>
-                <li class="nav-item">
                     <a href="/logout" class="nav-link">Logout</a>
                 </li>
             </ul>
-
         </div>
-
-
     </nav>
 
     <style>

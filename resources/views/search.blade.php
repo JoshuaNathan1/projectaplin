@@ -694,6 +694,7 @@
     </div>
 </div>
 
+
 <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function() {
         $(".search-province").on("change", function() {

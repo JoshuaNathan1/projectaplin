@@ -13,9 +13,6 @@ use App\Models\Office;
 
 class Admin_OfficeController extends Controller
 {
-    private function getAllOffices()
-    {
-    }
     public function officePage()
     {
         $var["offices"] = Office::all();
@@ -25,19 +22,8 @@ class Admin_OfficeController extends Controller
 
     public function addPage()
     {
-        $var = [];
         $var["provinsi"] = Provinsi::all();
         return view("admin.office.addOffice", $var);
-    }
-
-    public function loadKota(Request $req)
-    {
-        $var = [];
-        $var["kota_id"] = $req->kota_id;
-
-        $var["kota"] = Kota::where("provinsi_id", "=", $req->provinsi_id)->orderBy("kota_nama")->get();
-        $view = view("admin.office.selectKota", $var);
-        return $view;
     }
 
     public function do_addOffice(Request $req)
@@ -46,6 +32,7 @@ class Admin_OfficeController extends Controller
         $user->username = $req->username;
         $user->full_name = $req->full_name;
         $user->password = $req->password;
+        $user->email = $req->email;
         $user->hp = $req->hp;
         $user->profile_pic = $req->profile_pic;
         $user->role = 'agen';
@@ -69,10 +56,9 @@ class Admin_OfficeController extends Controller
 
     public function editPage(Request $req)
     {
-        $var = [];
         $var["provinsi"] = Provinsi::all();
         $var["office"] = Office::where('office_id', "=", $req->id)->first();
-        $var["agen"] = Agen::where('office_id',"=",$req->id)->get();
+        $var["agen"] = Agen::where('office_id', "=", $req->id)->get();
 
         return view("admin.office.editOffice", $var);
     }
@@ -91,20 +77,18 @@ class Admin_OfficeController extends Controller
 
     public function deleteOffice(Request $req)
     {
-        $office = Office::where('office_id', "=", $req->id)->first();
-        $agen = Agen::where('office_id', "=", $req->id)->get();
-        foreach($agen as $a){
-            $user = User::where('username', "=", $a->username)->first();
-            $user->delete();
+        $office = Office::where('office_id', $req->id)->first();
+        $agen = User::where('office_id', "=", $req->id)->get();
+        foreach ($agen as $a) {
             $a->delete();
         }
         $office->delete();
         return redirect("/admin/office");
     }
 
-    public function viewOffice(Request $req){
-        $var = [];
-        $var["office"] = Office::where('office_id', "=", $req->id)->first();
+    public function viewOffice(Request $req)
+    {
+        $var["office"] = Office::where('office_id', $req->id)->first();
         return view("admin.office.viewOffice", $var);
     }
 }

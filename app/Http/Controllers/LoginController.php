@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Agen;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -22,12 +24,10 @@ class LoginController extends Controller
     {
         $req->validate(
             [
-                //ini pengecekannya
                 "username" => "required",
                 'password' => "required"
             ],
             [
-                //ini perubahan error messagenya
                 "username.required" => "Username harus terisi!",
                 "password.required" => "Password harus terisi!"
             ]
@@ -40,26 +40,30 @@ class LoginController extends Controller
             return redirect("login")->withErrors(['username' => 'Incorrect Password']);
         }
 
-        if($user["role"] == "admin") return redirect('/admin/office');
+        session(['user' => $user]);
+        if ($user["role"] == "admin") {
+            return redirect('/admin/office');
+        } else if ($user["role"] == "agen") {
+            $agen = Agen::where("username", $user["username"])->first();
+            session(['agen' => $agen]);
+            return redirect("/agen/properti");
+        }
     }
     public function doRegister(Request $req)
     {
         $req->validate(
             [
-                //ini pengecekannya
                 "username" => "required|regex:/^\S*$/",
                 "full_name" => "required",
                 'password' => "required|confirmed",
-                "hp"=> "required"
+                "hp" => "required"
             ],
             [
-                //ini perubahan error messagenya
                 "username.required" => "Username harus terisi!",
                 "username.regex" => "Username tidak boleh mengandung spasi",
                 "full_name.required" => "Name harus terisi!",
                 "password.confirmed" => "Password dan Confirm Password harus sama!",
                 "password.required" => "Password harus terisi!"
-
             ]
         );
         // var_dump($_FILES["profile_pic"]);
@@ -83,13 +87,7 @@ class LoginController extends Controller
         $file_name = $req->username . "." . $ekstensi;
         $path = "img/profile/" . $file_name;
         $directory = "img/profile";
-        $file->move(public_path($directory),$file_name);
-
-
-        // if (!move_uploaded_file($file["tmp_name"], 'public/' . $path)) {
-        //     return redirect("register")->withErrors(['username' => 'Gagal upload file']);
-        // }
-
+        $file->move(public_path($directory), $file_name);
 
         $user = new User();
 
@@ -104,7 +102,9 @@ class LoginController extends Controller
         return redirect("/login")->with("message", "Anda telah berhasil register");
     }
 
-    public function logout(){
+    public function logout()
+    {
+        Session::flush();
         return redirect("/login");
     }
 }

@@ -106,7 +106,7 @@
 
         function loadKota() {
             $.ajax({
-                url: "{{ route('adminloadKota') }}",
+                url: "{{ route('loadKota') }}",
                 method: "get",
                 data: {
                     _token: token,

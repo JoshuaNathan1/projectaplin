@@ -45,8 +45,7 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="profile-view">
-                                    <a style="flex:1;text-align:center" class="active" id="btn-prop"
-                                        href="https://eraindonesia.com/profile/242?view=listing">View Listings</a>
+                                    <a style="flex:1;text-align:center" class="active" id="btn-prop">View Listings</a>
                                     <div class="divider"></div>
                                     <a style="flex:1;text-align:center" class="" id="btn-agen">View Marketings</a>
                                 </div>
@@ -65,10 +64,8 @@
         </div>
     </div>
 
-
     <script>
         const token = $("input[name='_token']").val();
-
         $(document).ready(function() {
             $("#btn-agen").click(function() {
                 // alert($("#office_id").text());
@@ -80,7 +77,6 @@
                         office_id: $("#office_id").text()
                     },
                     success: function(response) {
-                        alert(response);
                         $("#content").html(response);
                         $("#btn-agen").addClass("active");
                         $("#btn-prop").removeClass("active");

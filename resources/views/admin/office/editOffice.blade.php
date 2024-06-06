@@ -102,11 +102,10 @@
             function loadKota() {
                 // alert($("#kota_id").val());
                 $.ajax({
-                    url: "{{ route('adminloadKota') }}",
+                    url: "{{ route('loadKota') }}",
                     method: "get",
                     data: {
                         _token: token,
-                        action: "adminloadKota",
                         provinsi_id: $("#provinsi").val(),
                         kota_id: $("#kota_id").val()
                     },

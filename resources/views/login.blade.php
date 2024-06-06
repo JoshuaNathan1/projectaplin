@@ -59,9 +59,9 @@
     </script>
     <style>
         body {
-            background-image: url("{{asset('img/hotel-sorga-kita-kuta.jpg')}}"); 
-            background-size: cover; 
-            background-position: center; 
+            background-image: url("{{asset('img/hotel-sorga-kita-kuta.jpg')}}");
+            background-size: cover;
+            background-position: center;
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
@@ -160,7 +160,7 @@
                 </label>
             @enderror
         </form>
-        <a href="./register">Don't have an account? Register here</a>
+        {{-- <a href="./register">Don't have an account? Register here</a> --}}
     </div>
 </body>
 </html>

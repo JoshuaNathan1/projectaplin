@@ -15,10 +15,9 @@ class Admin_CustomerController extends Controller
         return view("admin.customer.customer", $var);
     }
 
-    public function loadCustomer(Request $req){
-        // return "hai";
-        $var = [];
-        $var['customers'] = User::where('role','=','pengguna')->get();
+    public function loadCustomer(Request $req)
+    {
+        $var['customers'] = User::where('role', 'pengguna')->get();
         $view = view("admin.customer.tabelcustomer", $var);
         return $view;
     }

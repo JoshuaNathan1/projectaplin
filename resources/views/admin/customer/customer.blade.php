@@ -3,7 +3,7 @@
 @section('isi')
     <div class="page-content">
         <div class="container " style="border: 1px solid grey; border-radius: 10px">
-            <table class="table text-center" >
+            <table class="table text-center">
                 <thead>
                     <tr class="row">
                         <th class="col">Profile</th>

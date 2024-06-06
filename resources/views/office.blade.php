@@ -54,7 +54,7 @@
                         <a href="Investor.php" class="nav-link nav-submenu-parent"><span>&nbsp;Investor&nbsp;</span></a>
                         <div class="nav-submenu-content">
                             <a href="laporantahunan.php">Laporan Tahunan</a>
-                            <a href="laporankeuangan.php" class="nav-submenu-parent">Laporan Keuangan 333</a>
+                            <a href="laporankeuangan.php" class="nav-submenu-parent">Laporan Keuangan</a>
                         </div>
                     </li>
                     <li style="width: 10%" class="nav-item nav-submenu ">
