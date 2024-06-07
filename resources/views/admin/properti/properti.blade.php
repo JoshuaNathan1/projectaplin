@@ -1,4 +1,4 @@
-@extends('agen.templateAgen')
+@extends('admin.templateAdmin')
 
 @section('isi')
     <div class="container">

@@ -16,7 +16,7 @@ class Agen_PropertiController extends Controller
 {
     public function propertiPage()
     {
-        $var["properti"] = Properti::where("agen_id", session()->get("agen")->agen_id)->get();
+        $var["properti"] = Properti::where("agen_id", session()->get("user")->username)->get();
         return view("agen.properti.properti", $var);
     }
 
@@ -42,7 +42,7 @@ class Agen_PropertiController extends Controller
         $properti->foto = $req->foto;
         $properti->proptype_id = $req->proptype;
         $properti->kecamatan_id = $req->kecamatan;
-        $properti->agen_id = session()->get("agen")->agen_id;
+        $properti->agen_id = session()->get("user")->username;
         $properti->save();
         return redirect("/agen/properti");
     }

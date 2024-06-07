@@ -132,9 +132,9 @@
                 </div>
                 <div class="row" style="margin-top:20px;">
                     <div class="col-xs-4 col-sm-4 col-md-4">
-                        <a href="https://eraindonesia.com/property?proptype=RK">
+                        <a onclick="loadProperti('RK')">
                             <div style="width:100%;height:200px;background:#000;position: relative;">
-                                <span>Ruko</span>
+                                <span>RK</span>
                                 <img src="https://eraindonesia.com/property_type/ruko.jpg" style="width:100%;height:200px">
                             </div>
                         </a>
@@ -159,6 +159,12 @@
                 </div>
             </div>
         </section>
+    </div>
+    @csrf
+
+
+    <div class="container">
+        <div class="row" id="props"></div>
     </div>
 
     <section class="home-property" style="text-align: center" id="premium">
@@ -218,10 +224,36 @@
         </div>
     </section>
     <!-- <section class="home-banks">
-     <a href="partners.php">
-      <div class="lazy banks-background" data-bg="url('https://eraindonesia.com/images/our_partners_03.jpg')">
-       <img src="https://eraindonesia.com/images/our_partners_blur.jpg">
-      </div>
-     </a>
-    </section> -->
+                     <a href="partners.php">
+                      <div class="lazy banks-background" data-bg="url('https://eraindonesia.com/images/our_partners_03.jpg')">
+                       <img src="https://eraindonesia.com/images/our_partners_blur.jpg">
+                      </div>
+                     </a>
+                    </section> -->
+
+
+    <script>
+        // const token = $("input[name='_token']").val();
+        $(document).ready(function() {
+            loadProperti("");
+        })
+
+        function loadProperti(param) {
+            $.ajax({
+                url: "{{ route('loadProperti') }}",
+                method: "get",
+                data: {
+                    // _token: token,
+                    type: param
+                },
+                success: function(response) {
+                    $("#props").html(response);
+                },
+                error: function(xhr, status, error) {
+                    var errorMessage = xhr.status + ': ' + xhr.statusText;
+                    console.log('Error - ' + errorMessage);
+                }
+            });
+        }
+    </script>
 @endsection

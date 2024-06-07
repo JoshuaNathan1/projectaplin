@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="https://eraindonesia.com/css/style.css?v=3.11">
     <script src="https://kit.fontawesome.com/797dd41ce0.js" crossorigin="anonymous"></script>
     <style media="all" id="fa-v4-font-face"></style>
-    <!-- <script src="/public/jquery-3.7.1.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
 </head>
 
 <body>

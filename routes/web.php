@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get("/loadProp", [SearchController::class, "searchProp"])->name("loadProperti");
+
+
 Route::get('/login', [LoginController::class, "loginPage"]);
 Route::post('/login', [LoginController::class, "doLogin"]);
 
